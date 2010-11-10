@@ -32,8 +32,8 @@ CDCU       Yes	R N 113 114  2 Congressional District Code, Current (108th)
 ZCTA5CU    Yes	L A 115 119  5 5-Digit ZIP Code Tabulation Area, current
 ZCTA3CU    Yes	R A 120 122  3 3-Digit ZIP Code Tabulation Area, current
 RS-A4      Yes	R A 123 128  6 Reserved Space A4
-RS-A5      Yes	R A 129 131  3 Reserved Space A5
-RS-A6      Yes	R A 132 134  3 Reserved Space A6
+SLDUCU     Yes  R A 129 131  3 State Legislative District Upper, Current (2006) 
+SLDLCU     Yes  R A 132 134  3 State Legislative District Lower, Current (2006) 
 RS-A7      Yes	R A 135 139  5 Reserved Space A7
 RS-A8      Yes	R A 140 145  6 Reserved Space A8
 RS-A9      Yes	L A 146 151  6 Reserved Space A9
@@ -44,8 +44,8 @@ CNECTACU   Yes	L N 165 167  3 FIPS Combined New England City and Town Area Code,
 METDIVCU   Yes L N 168 172  5 FIPS Metropolitan Division Code, Current
 NECTADIVCU Yes L N 173 177  5 FIPS New England City and Town Area Division Code, Current
 RS-A14     Yes L A 178 181  4 Reserved Space A14
-RS-A15     Yes L A 182 186  5 Reserved Space A15
-RS-A16     Yes L A 187 187  1 Reserved Space A16
+UACU       Yes L N 182 186  5 Urban Area, Current 
+URCU       Yes L A 187 187  1 Urban/Rural Indicator, Current
 RS-A17     Yes L A 188 193  6 Reserved Space A17
 RS-A18     Yes L A 194 199  6 Reserved Space A18
 RS-A19     Yes L A 200 210 11 Reserved Space A19

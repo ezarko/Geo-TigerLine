@@ -7,7 +7,7 @@ use base qw(Geo::TigerLine::Record::Parser Geo::TigerLine::Record::Accessor
             Geo::TigerLine::Record Class::Data::Inheritable);
 
 use vars qw($VERSION);
-$VERSION = '0.02';
+$VERSION = '0.03';
 
 
 # Auto-generated data dictionary.
@@ -144,6 +144,17 @@ my %Data_Dict = (
                               'fmt' => 'L',
                               'field' => 'version'
                             },
+               'casld' => {
+                            'len' => 3,
+                            'beg' => 53,
+                            'bv' => 'Yes',
+                            'fieldnum' => 17,
+                            'type' => 'N',
+                            'description' => 'Combined Statistical Area/Combined New England City and Town Area/State Legislative District (Upper and Lower Chambers) Code',
+                            'end' => 55,
+                            'fmt' => 'L',
+                            'field' => 'casld'
+                          },
                'name' => {
                            'len' => 60,
                            'beg' => 63,
@@ -188,17 +199,6 @@ my %Data_Dict = (
                             'fmt' => 'L',
                             'field' => 'uauga'
                           },
-               'csacnecta' => {
-                                'len' => 3,
-                                'beg' => 53,
-                                'bv' => 'Yes',
-                                'fieldnum' => 17,
-                                'type' => 'N',
-                                'description' => 'Combined Statistical Area/Combined New England City and Town Area Code',
-                                'end' => 55,
-                                'fmt' => 'L',
-                                'field' => 'csacnecta'
-                              },
                'lsadc' => {
                             'len' => 2,
                             'beg' => 23,
@@ -263,7 +263,7 @@ my @Data_Fields = (
                  'vtdtract',
                  'uauga',
                  'aitsce',
-                 'csacnecta',
+                 'casld',
                  'cbsanecta',
                  'commreg',
                  'rs_c2',
@@ -296,7 +296,7 @@ foreach my $def (@Data_Dict{@Data_Fields}) {
 
 =head1 NAME
 
-Geo::TigerLine::Record::C - TIGER/Line 2003 Geographic Entity Names
+Geo::TigerLine::Record::C - TIGER/Line 2006 Geographic Entity Names
 
 =head1 SYNOPSIS
 
@@ -323,7 +323,7 @@ Geo::TigerLine::Record::C - TIGER/Line 2003 Geographic Entity Names
   $record->vtdtract();
   $record->uauga();
   $record->aitsce();
-  $record->csacnecta();
+  $record->casld();
   $record->cbsanecta();
   $record->commreg();
   $record->rs_c2();
@@ -332,7 +332,7 @@ Geo::TigerLine::Record::C - TIGER/Line 2003 Geographic Entity Names
 
 =head1 DESCRIPTION
 
-This is a class representing record type C of the TIGER/Line 2003
+This is a class representing record type C of the TIGER/Line 2006
 census geographic database.  Each object is one record.  It also
 contains methods to parse TIGER/Line record type C files and turn them
 into objects.
@@ -350,7 +350,7 @@ file.  It's OO, so consider sub-classing instead.
 =head2 Accessors
 
 These are simple get/set accessors for each field of a record
-generated from the TIGER/Line 2003 data dictionary.  They perform some
+generated from the TIGER/Line 2006 data dictionary.  They perform some
 data validation.
 
 =over 4
@@ -531,12 +531,12 @@ Expects numeric data of no more than 3 characters.  $data can be blank
 and should be left justified.
 
 
-=item B<csacnecta>
+=item B<casld>
 
-    $data = $record->csacnecta();
-    $record->csacnecta($data);
+    $data = $record->casld();
+    $record->casld($data);
 
-Combined Statistical Area/Combined New England City and Town Area Code.  
+Combined Statistical Area/Combined New England City and Town Area/State Legislative District (Upper and Lower Chambers) Code.  
 
 Expects numeric data of no more than 3 characters.  $data can be blank 
 and should be left justified.
@@ -592,7 +592,7 @@ and should be left justified.
 
 =head2 Data dictionary
 
-This is the original TIGER/Line 2003 data dictionary from which this
+This is the original TIGER/Line 2006 data dictionary from which this
 class was generated.
 
     Record Type C - Geographic Entity Names
@@ -614,7 +614,7 @@ class was generated.
     VTDTRACT  Yes   R   A   39   44  6  Census Voting District Code/Census Tract Code
     UAUGA     Yes   L   N   45   49  5  Urban Area Code/Urban Growth Area Code
     AITSCE     Yes  L   N   50   52  3  Census American Indian Tribal Subdivision Code
-    CSACNECTA  Yes  L   N   53   55  3  Combined Statistical Area/Combined New England City and Town Area Code
+    CASLD      Yes  L   N   53   55  3  Combined Statistical Area/Combined New England City and Town Area/State Legislative District (Upper and Lower Chambers) Code
     CBSANECTA  Yes  L   N   56   60  5  Metropolitan Statistical Area/Micropolitan Statistical Area/New England City and Town Area/Metropolitan Division/New England City and Town Area Division Code
     COMMREG    Yes  L   N   61   61  1  Commercial Region Code, Economic Census
     RS-C2      Yes  L   N   62   62  1  Reserved Space C2

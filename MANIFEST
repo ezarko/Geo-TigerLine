@@ -14,6 +14,7 @@ data_dict/dictC
 data_dict/dictE
 data_dict/dictH
 data_dict/dictI
+data_dict/dictM
 data_dict/dictP
 data_dict/dictR
 data_dict/dictS
@@ -37,6 +38,7 @@ lib/Geo/TigerLine/Record/C.pm
 lib/Geo/TigerLine/Record/E.pm
 lib/Geo/TigerLine/Record/H.pm
 lib/Geo/TigerLine/Record/I.pm
+lib/Geo/TigerLine/Record/M.pm
 lib/Geo/TigerLine/Record/P.pm
 lib/Geo/TigerLine/Record/Parser.pm
 lib/Geo/TigerLine/Record/R.pm

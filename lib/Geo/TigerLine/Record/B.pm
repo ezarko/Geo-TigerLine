@@ -7,7 +7,7 @@ use base qw(Geo::TigerLine::Record::Parser Geo::TigerLine::Record::Accessor
             Geo::TigerLine::Record Class::Data::Inheritable);
 
 use vars qw($VERSION);
-$VERSION = '0.02';
+$VERSION = '0.03';
 
 
 # Auto-generated data dictionary.
@@ -155,6 +155,17 @@ my %Data_Dict = (
                                  'fmt' => 'L',
                                  'field' => 'aianhhfpcq'
                                },
+               'rs_b2' => {
+                            'len' => 5,
+                            'beg' => 85,
+                            'bv' => 'Yes',
+                            'fieldnum' => 20,
+                            'type' => 'N',
+                            'description' => 'Reserved Space B2',
+                            'end' => 89,
+                            'fmt' => 'L',
+                            'field' => 'rs_b2'
+                          },
                'aitscq' => {
                              'len' => 5,
                              'beg' => 55,
@@ -199,17 +210,6 @@ my %Data_Dict = (
                               'fmt' => 'L',
                               'field' => 'placecq'
                             },
-               'urcc' => {
-                           'len' => 1,
-                           'beg' => 90,
-                           'bv' => 'Yes',
-                           'fieldnum' => 21,
-                           'type' => 'A',
-                           'description' => 'Urban/Rural Indicator, 2000 Corrected',
-                           'end' => 90,
-                           'fmt' => 'L',
-                           'field' => 'urcc'
-                         },
                'blockcq' => {
                               'len' => 5,
                               'beg' => 37,
@@ -221,17 +221,6 @@ my %Data_Dict = (
                               'fmt' => 'L',
                               'field' => 'blockcq'
                             },
-               'uacc' => {
-                           'len' => 5,
-                           'beg' => 85,
-                           'bv' => 'Yes',
-                           'fieldnum' => 20,
-                           'type' => 'N',
-                           'description' => 'Urban Area, 2000 Corrected',
-                           'end' => 89,
-                           'fmt' => 'L',
-                           'field' => 'uacc'
-                         },
                'aitscecq' => {
                                'len' => 3,
                                'beg' => 52,
@@ -253,7 +242,18 @@ my %Data_Dict = (
                                'end' => 69,
                                'fmt' => 'L',
                                'field' => 'concitcq'
-                             }
+                             },
+               'rs_b3' => {
+                            'len' => 1,
+                            'beg' => 90,
+                            'bv' => 'Yes',
+                            'fieldnum' => 21,
+                            'type' => 'A',
+                            'description' => 'Reserved Space B3',
+                            'end' => 90,
+                            'fmt' => 'L',
+                            'field' => 'rs_b3'
+                          }
              );
 
 
@@ -277,8 +277,8 @@ my @Data_Fields = (
                  'cousubcq',
                  'submcdcq',
                  'placecq',
-                 'uacc',
-                 'urcc',
+                 'rs_b2',
+                 'rs_b3',
                  'rs_b1'
                );
 
@@ -308,7 +308,7 @@ foreach my $def (@Data_Dict{@Data_Fields}) {
 
 =head1 NAME
 
-Geo::TigerLine::Record::B - TIGER/Line 2003 Polygon Geographic Entity Codes: Corrections
+Geo::TigerLine::Record::B - TIGER/Line 2006 Polygon Geographic Entity Codes: Corrections
 
 =head1 SYNOPSIS
 
@@ -338,14 +338,14 @@ Geo::TigerLine::Record::B - TIGER/Line 2003 Polygon Geographic Entity Codes: Cor
   $record->cousubcq();
   $record->submcdcq();
   $record->placecq();
-  $record->uacc();
-  $record->urcc();
+  $record->rs_b2();
+  $record->rs_b3();
   $record->rs_b1();
 
 
 =head1 DESCRIPTION
 
-This is a class representing record type B of the TIGER/Line 2003
+This is a class representing record type B of the TIGER/Line 2006
 census geographic database.  Each object is one record.  It also
 contains methods to parse TIGER/Line record type B files and turn them
 into objects.
@@ -363,7 +363,7 @@ file.  It's OO, so consider sub-classing instead.
 =head2 Accessors
 
 These are simple get/set accessors for each field of a record
-generated from the TIGER/Line 2003 data dictionary.  They perform some
+generated from the TIGER/Line 2006 data dictionary.  They perform some
 data validation.
 
 =over 4
@@ -577,23 +577,23 @@ Expects numeric data of no more than 5 characters.  $data can be blank
 and should be left justified.
 
 
-=item B<uacc>
+=item B<rs_b2>
 
-    $data = $record->uacc();
-    $record->uacc($data);
+    $data = $record->rs_b2();
+    $record->rs_b2($data);
 
-Urban Area, 2000 Corrected.  
+Reserved Space B2.  
 
 Expects numeric data of no more than 5 characters.  $data can be blank 
 and should be left justified.
 
 
-=item B<urcc>
+=item B<rs_b3>
 
-    $data = $record->urcc();
-    $record->urcc($data);
+    $data = $record->rs_b3();
+    $record->rs_b3($data);
 
-Urban/Rural Indicator, 2000 Corrected.  
+Reserved Space B3.  
 
 Expects alphanumeric data of no more than 1 characters.  $data can be blank 
 and should be left justified.
@@ -616,7 +616,7 @@ and should be left justified.
 
 =head2 Data dictionary
 
-This is the original TIGER/Line 2003 data dictionary from which this
+This is the original TIGER/Line 2006 data dictionary from which this
 class was generated.
 
     Record Type B - Polygon Geographic Entity Codes: Corrections
@@ -641,8 +641,8 @@ class was generated.
     COUSUBCQ   No   L   N   70   74  5  FIPS 55 Code (County Subdivision), 2000 CQR
     SUBMCDCQ   Yes  L   N   75   79  5  FIPS 55 Code (Subbarrio), 2000 CQR
     PLACECQ    Yes  L   N   80   84  5  FIPS 55 Code (Incorporated Place), 2000 CQR
-    UACC       Yes  L   N   85   89  5  Urban Area, 2000 Corrected
-    URCC       Yes  L   A   90   90  1  Urban/Rural Indicator, 2000 Corrected
+    RS-B2      Yes  L   N   85   89  5  Reserved Space B2 
+    RS-B3      Yes  L   A   90   90  1  Reserved Space B3  
     RS-B1      Yes  L   A   91   98  8  Reserved Space B1
 
 

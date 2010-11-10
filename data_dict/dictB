@@ -20,6 +20,6 @@ CONCITCQ   Yes  L   N   65   69  5  FIPS 55 Code (Consolidated City), 2000 CQR
 COUSUBCQ   No   L   N   70   74  5  FIPS 55 Code (County Subdivision), 2000 CQR
 SUBMCDCQ   Yes  L   N   75   79  5  FIPS 55 Code (Subbarrio), 2000 CQR
 PLACECQ    Yes  L   N   80   84  5  FIPS 55 Code (Incorporated Place), 2000 CQR
-UACC       Yes  L   N   85   89  5  Urban Area, 2000 Corrected
-URCC       Yes  L   A   90   90  1  Urban/Rural Indicator, 2000 Corrected
+RS-B2      Yes  L   N   85   89  5  Reserved Space B2 
+RS-B3      Yes  L   A   90   90  1  Reserved Space B3  
 RS-B1      Yes  L   A   91   98  8  Reserved Space B1

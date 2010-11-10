@@ -8,12 +8,12 @@ my($code, $pod);
 
 use vars qw($RT_Num $RT_Desc %RT_Dict $Year $VERSION $This_Prog $Class
             @RT_Fields @Data_Dict);
-$VERSION = '0.02';
+$VERSION = '0.03';
 
 
 $Class = 'Geo::TigerLine';
 $This_Prog = $0;
-$Year = 2003;
+$Year = 2006;
 
 
 ($RT_Num, $RT_Desc) = read_title();

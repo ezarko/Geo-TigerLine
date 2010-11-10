@@ -7,7 +7,7 @@ use base qw(Geo::TigerLine::Record::Parser Geo::TigerLine::Record::Accessor
             Geo::TigerLine::Record Class::Data::Inheritable);
 
 use vars qw($VERSION);
-$VERSION = '0.02';
+$VERSION = '0.03';
 
 
 # Auto-generated data dictionary.
@@ -524,7 +524,7 @@ foreach my $def (@Data_Dict{@Data_Fields}) {
 
 =head1 NAME
 
-Geo::TigerLine::Record::S - TIGER/Line 2003 Polygon Additional Geographic Entity Codes
+Geo::TigerLine::Record::S - TIGER/Line 2006 Polygon Additional Geographic Entity Codes
 
 =head1 SYNOPSIS
 
@@ -579,7 +579,7 @@ Geo::TigerLine::Record::S - TIGER/Line 2003 Polygon Additional Geographic Entity
 
 =head1 DESCRIPTION
 
-This is a class representing record type S of the TIGER/Line 2003
+This is a class representing record type S of the TIGER/Line 2006
 census geographic database.  Each object is one record.  It also
 contains methods to parse TIGER/Line record type S files and turn them
 into objects.
@@ -597,7 +597,7 @@ file.  It's OO, so consider sub-classing instead.
 =head2 Accessors
 
 These are simple get/set accessors for each field of a record
-generated from the TIGER/Line 2003 data dictionary.  They perform some
+generated from the TIGER/Line 2006 data dictionary.  They perform some
 data validation.
 
 =over 4
@@ -1048,7 +1048,7 @@ and should be left justified.
 
 =head2 Data dictionary
 
-This is the original TIGER/Line 2003 data dictionary from which this
+This is the original TIGER/Line 2006 data dictionary from which this
 class was generated.
 
     Record Type S - Polygon Additional Geographic Entity Codes

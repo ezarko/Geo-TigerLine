@@ -7,22 +7,11 @@ use base qw(Geo::TigerLine::Record::Parser Geo::TigerLine::Record::Accessor
             Geo::TigerLine::Record Class::Data::Inheritable);
 
 use vars qw($VERSION);
-$VERSION = '0.02';
+$VERSION = '0.03';
 
 
 # Auto-generated data dictionary.
 my %Data_Dict = (
-               'source' => {
-                             'len' => 10,
-                             'beg' => 71,
-                             'bv' => 'Yes',
-                             'fieldnum' => 11,
-                             'type' => 'A',
-                             'description' => 'TIGER 1-Cell Source Code',
-                             'end' => 80,
-                             'fmt' => 'L',
-                             'field' => 'source'
-                           },
                'polyidr' => {
                               'len' => 10,
                               'beg' => 61,
@@ -144,6 +133,17 @@ my %Data_Dict = (
                             'fmt' => 'L',
                             'field' => 'rs_i2'
                           },
+               'rs_i4' => {
+                            'len' => 10,
+                            'beg' => 71,
+                            'bv' => 'Yes',
+                            'fieldnum' => 11,
+                            'type' => 'A',
+                            'description' => 'Reserved Space I-4',
+                            'end' => 80,
+                            'fmt' => 'L',
+                            'field' => 'rs_i4'
+                          },
                'tzids' => {
                             'len' => 10,
                             'beg' => 21,
@@ -191,7 +191,7 @@ my @Data_Fields = (
                  'polyidl',
                  'cenidr',
                  'polyidr',
-                 'source',
+                 'rs_i4',
                  'ftseg',
                  'rs_i1',
                  'rs_i2',
@@ -224,7 +224,7 @@ foreach my $def (@Data_Dict{@Data_Fields}) {
 
 =head1 NAME
 
-Geo::TigerLine::Record::I - TIGER/Line 2003 Link Between Complete Chains and Polygons
+Geo::TigerLine::Record::I - TIGER/Line 2006 Link Between Complete Chains and Polygons
 
 =head1 SYNOPSIS
 
@@ -245,7 +245,7 @@ Geo::TigerLine::Record::I - TIGER/Line 2003 Link Between Complete Chains and Pol
   $record->polyidl();
   $record->cenidr();
   $record->polyidr();
-  $record->source();
+  $record->rs_i4();
   $record->ftseg();
   $record->rs_i1();
   $record->rs_i2();
@@ -254,7 +254,7 @@ Geo::TigerLine::Record::I - TIGER/Line 2003 Link Between Complete Chains and Pol
 
 =head1 DESCRIPTION
 
-This is a class representing record type I of the TIGER/Line 2003
+This is a class representing record type I of the TIGER/Line 2006
 census geographic database.  Each object is one record.  It also
 contains methods to parse TIGER/Line record type I files and turn them
 into objects.
@@ -272,7 +272,7 @@ file.  It's OO, so consider sub-classing instead.
 =head2 Accessors
 
 These are simple get/set accessors for each field of a record
-generated from the TIGER/Line 2003 data dictionary.  They perform some
+generated from the TIGER/Line 2006 data dictionary.  They perform some
 data validation.
 
 =over 4
@@ -387,12 +387,12 @@ Expects numeric data of no more than 10 characters.  $data can be blank
 and should be right justified.
 
 
-=item B<source>
+=item B<rs_i4>
 
-    $data = $record->source();
-    $record->source($data);
+    $data = $record->rs_i4();
+    $record->rs_i4($data);
 
-TIGER 1-Cell Source Code.  
+Reserved Space I-4.  
 
 Expects alphanumeric data of no more than 10 characters.  $data can be blank 
 and should be left justified.
@@ -448,7 +448,7 @@ and should be left justified.
 
 =head2 Data dictionary
 
-This is the original TIGER/Line 2003 data dictionary from which this
+This is the original TIGER/Line 2006 data dictionary from which this
 class was generated.
 
     Record Type I - Link Between Complete Chains and Polygons
@@ -464,7 +464,7 @@ class was generated.
     POLYIDL Yes  R   N    46  55 10  Polygon Identification Code, Left
     CENIDR  Yes  L   A    56  60  5  Census File Identification Code, Right
     POLYIDR Yes  R   N    61  70 10  Polygon Identification Code, Right
-    SOURCE  Yes  L   A    71  80 10  TIGER 1-Cell Source Code
+    RS-I4   Yes  L   A    71  80 10  Reserved Space I-4
     FTSEG   Yes  L   A    81  97 17  FTSeg ID (AAAAA.O.XXXXXXXXX) (Authority-S-ID) FGDC Transportation ID Standard (not filled)
     RS-I1   Yes  L   A    98 107 10  Reserved Space I1
     RS-I2   Yes  L   A   108 117 10  Reserved Space I2

@@ -17,7 +17,7 @@ AIANHH    Yes   L   N   35   38  4  Census American Indian/Alaska Native Area/Ha
 VTDTRACT  Yes   R   A   39   44  6  Census Voting District Code/Census Tract Code
 UAUGA     Yes   L   N   45   49  5  Urban Area Code/Urban Growth Area Code
 AITSCE     Yes  L   N   50   52  3  Census American Indian Tribal Subdivision Code
-CSACNECTA  Yes  L   N   53   55  3  Combined Statistical Area/Combined New England City and Town Area Code
+CASLD      Yes  L   N   53   55  3  Combined Statistical Area/Combined New England City and Town Area/State Legislative District (Upper and Lower Chambers) Code
 CBSANECTA  Yes  L   N   56   60  5  Metropolitan Statistical Area/Micropolitan Statistical Area/New England City and Town Area/Metropolitan Division/New England City and Town Area Division Code
 COMMREG    Yes  L   N   61   61  1  Commercial Region Code, Economic Census
 RS-C2      Yes  L   N   62   62  1  Reserved Space C2

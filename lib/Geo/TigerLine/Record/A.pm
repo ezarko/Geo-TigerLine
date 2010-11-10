@@ -7,7 +7,7 @@ use base qw(Geo::TigerLine::Record::Parser Geo::TigerLine::Record::Accessor
             Geo::TigerLine::Record Class::Data::Inheritable);
 
 use vars qw($VERSION);
-$VERSION = '0.02';
+$VERSION = '0.03';
 
 
 # Auto-generated data dictionary.
@@ -22,6 +22,17 @@ my %Data_Dict = (
                            'end' => 10,
                            'fmt' => 'L',
                            'field' => 'file'
+                         },
+               'urcu' => {
+                           'len' => 1,
+                           'beg' => 187,
+                           'bv' => 'Yes',
+                           'fieldnum' => 45,
+                           'type' => 'A',
+                           'description' => 'Urban/Rural Indicator, Current',
+                           'end' => 187,
+                           'fmt' => 'L',
+                           'field' => 'urcu'
                          },
                'tract' => {
                             'len' => 6,
@@ -45,17 +56,6 @@ my %Data_Dict = (
                              'fmt' => 'L',
                              'field' => 'rs_a18'
                            },
-               'rs_a6' => {
-                            'len' => 3,
-                            'beg' => 132,
-                            'bv' => 'Yes',
-                            'fieldnum' => 33,
-                            'type' => 'A',
-                            'description' => 'Reserved Space A6',
-                            'end' => 134,
-                            'fmt' => 'R',
-                            'field' => 'rs_a6'
-                          },
                'rt' => {
                          'len' => 1,
                          'beg' => 1,
@@ -111,17 +111,6 @@ my %Data_Dict = (
                              'fmt' => 'L',
                              'field' => 'rs_a19'
                            },
-               'rs_a5' => {
-                            'len' => 3,
-                            'beg' => 129,
-                            'bv' => 'Yes',
-                            'fieldnum' => 32,
-                            'type' => 'A',
-                            'description' => 'Reserved Space A5',
-                            'end' => 131,
-                            'fmt' => 'R',
-                            'field' => 'rs_a5'
-                          },
                'zcta5cu' => {
                               'len' => 5,
                               'beg' => 115,
@@ -342,6 +331,17 @@ my %Data_Dict = (
                              'fmt' => 'L',
                              'field' => 'rs_a21'
                            },
+               'slducu' => {
+                             'len' => 3,
+                             'beg' => 129,
+                             'bv' => 'Yes',
+                             'fieldnum' => 32,
+                             'type' => 'A',
+                             'description' => 'State Legislative District Upper, Current (2006)',
+                             'end' => 131,
+                             'fmt' => 'R',
+                             'field' => 'slducu'
+                           },
                'rs_a8' => {
                             'len' => 6,
                             'beg' => 140,
@@ -364,6 +364,17 @@ my %Data_Dict = (
                                 'fmt' => 'L',
                                 'field' => 'aihhtlicu'
                               },
+               'sldlcu' => {
+                             'len' => 3,
+                             'beg' => 132,
+                             'bv' => 'Yes',
+                             'fieldnum' => 33,
+                             'type' => 'A',
+                             'description' => 'State Legislative District Lower, Current (2006)',
+                             'end' => 134,
+                             'fmt' => 'R',
+                             'field' => 'sldlcu'
+                           },
                'metdivcu' => {
                                'len' => 5,
                                'beg' => 168,
@@ -408,6 +419,17 @@ my %Data_Dict = (
                               'fmt' => 'L',
                               'field' => 'version'
                             },
+               'uacu' => {
+                           'len' => 5,
+                           'beg' => 182,
+                           'bv' => 'Yes',
+                           'fieldnum' => 44,
+                           'type' => 'N',
+                           'description' => 'Urban Area, Current',
+                           'end' => 186,
+                           'fmt' => 'L',
+                           'field' => 'uacu'
+                         },
                'countycu' => {
                                'len' => 3,
                                'beg' => 28,
@@ -430,17 +452,6 @@ my %Data_Dict = (
                               'fmt' => 'R',
                               'field' => 'zcta3cu'
                             },
-               'rs_a16' => {
-                             'len' => 1,
-                             'beg' => 187,
-                             'bv' => 'Yes',
-                             'fieldnum' => 45,
-                             'type' => 'A',
-                             'description' => 'Reserved Space A16',
-                             'end' => 187,
-                             'fmt' => 'L',
-                             'field' => 'rs_a16'
-                           },
                'cousubcu' => {
                                'len' => 5,
                                'beg' => 71,
@@ -485,17 +496,6 @@ my %Data_Dict = (
                             'fmt' => 'L',
                             'field' => 'block'
                           },
-               'rs_a15' => {
-                             'len' => 5,
-                             'beg' => 182,
-                             'bv' => 'Yes',
-                             'fieldnum' => 44,
-                             'type' => 'A',
-                             'description' => 'Reserved Space A15',
-                             'end' => 186,
-                             'fmt' => 'L',
-                             'field' => 'rs_a15'
-                           },
                'nectacu' => {
                               'len' => 5,
                               'beg' => 160,
@@ -575,8 +575,8 @@ my @Data_Fields = (
                  'zcta5cu',
                  'zcta3cu',
                  'rs_a4',
-                 'rs_a5',
-                 'rs_a6',
+                 'slducu',
+                 'sldlcu',
                  'rs_a7',
                  'rs_a8',
                  'rs_a9',
@@ -587,8 +587,8 @@ my @Data_Fields = (
                  'metdivcu',
                  'nectadivcu',
                  'rs_a14',
-                 'rs_a15',
-                 'rs_a16',
+                 'uacu',
+                 'urcu',
                  'rs_a17',
                  'rs_a18',
                  'rs_a19'
@@ -620,7 +620,7 @@ foreach my $def (@Data_Dict{@Data_Fields}) {
 
 =head1 NAME
 
-Geo::TigerLine::Record::A - TIGER/Line 2003 Polygon Geographic Entity Codes: Current Geography
+Geo::TigerLine::Record::A - TIGER/Line 2006 Polygon Geographic Entity Codes: Current Geography
 
 =head1 SYNOPSIS
 
@@ -662,8 +662,8 @@ Geo::TigerLine::Record::A - TIGER/Line 2003 Polygon Geographic Entity Codes: Cur
   $record->zcta5cu();
   $record->zcta3cu();
   $record->rs_a4();
-  $record->rs_a5();
-  $record->rs_a6();
+  $record->slducu();
+  $record->sldlcu();
   $record->rs_a7();
   $record->rs_a8();
   $record->rs_a9();
@@ -674,8 +674,8 @@ Geo::TigerLine::Record::A - TIGER/Line 2003 Polygon Geographic Entity Codes: Cur
   $record->metdivcu();
   $record->nectadivcu();
   $record->rs_a14();
-  $record->rs_a15();
-  $record->rs_a16();
+  $record->uacu();
+  $record->urcu();
   $record->rs_a17();
   $record->rs_a18();
   $record->rs_a19();
@@ -683,7 +683,7 @@ Geo::TigerLine::Record::A - TIGER/Line 2003 Polygon Geographic Entity Codes: Cur
 
 =head1 DESCRIPTION
 
-This is a class representing record type A of the TIGER/Line 2003
+This is a class representing record type A of the TIGER/Line 2006
 census geographic database.  Each object is one record.  It also
 contains methods to parse TIGER/Line record type A files and turn them
 into objects.
@@ -701,7 +701,7 @@ file.  It's OO, so consider sub-classing instead.
 =head2 Accessors
 
 These are simple get/set accessors for each field of a record
-generated from the TIGER/Line 2003 data dictionary.  They perform some
+generated from the TIGER/Line 2006 data dictionary.  They perform some
 data validation.
 
 =over 4
@@ -1047,23 +1047,23 @@ Expects alphanumeric data of no more than 6 characters.  $data can be blank
 and should be right justified.
 
 
-=item B<rs_a5>
+=item B<slducu>
 
-    $data = $record->rs_a5();
-    $record->rs_a5($data);
+    $data = $record->slducu();
+    $record->slducu($data);
 
-Reserved Space A5.  
+State Legislative District Upper, Current (2006).  
 
 Expects alphanumeric data of no more than 3 characters.  $data can be blank 
 and should be right justified.
 
 
-=item B<rs_a6>
+=item B<sldlcu>
 
-    $data = $record->rs_a6();
-    $record->rs_a6($data);
+    $data = $record->sldlcu();
+    $record->sldlcu($data);
 
-Reserved Space A6.  
+State Legislative District Lower, Current (2006).  
 
 Expects alphanumeric data of no more than 3 characters.  $data can be blank 
 and should be right justified.
@@ -1179,23 +1179,23 @@ Expects alphanumeric data of no more than 4 characters.  $data can be blank
 and should be left justified.
 
 
-=item B<rs_a15>
+=item B<uacu>
 
-    $data = $record->rs_a15();
-    $record->rs_a15($data);
+    $data = $record->uacu();
+    $record->uacu($data);
 
-Reserved Space A15.  
+Urban Area, Current.  
 
-Expects alphanumeric data of no more than 5 characters.  $data can be blank 
+Expects numeric data of no more than 5 characters.  $data can be blank 
 and should be left justified.
 
 
-=item B<rs_a16>
+=item B<urcu>
 
-    $data = $record->rs_a16();
-    $record->rs_a16($data);
+    $data = $record->urcu();
+    $record->urcu($data);
 
-Reserved Space A16.  
+Urban/Rural Indicator, Current.  
 
 Expects alphanumeric data of no more than 1 characters.  $data can be blank 
 and should be left justified.
@@ -1240,7 +1240,7 @@ and should be left justified.
 
 =head2 Data dictionary
 
-This is the original TIGER/Line 2003 data dictionary from which this
+This is the original TIGER/Line 2006 data dictionary from which this
 class was generated.
 
     Record Type A - Polygon Geographic Entity Codes: Current Geography
@@ -1277,8 +1277,8 @@ class was generated.
     ZCTA5CU    Yes	L A 115 119  5 5-Digit ZIP Code Tabulation Area, current
     ZCTA3CU    Yes	R A 120 122  3 3-Digit ZIP Code Tabulation Area, current
     RS-A4      Yes	R A 123 128  6 Reserved Space A4
-    RS-A5      Yes	R A 129 131  3 Reserved Space A5
-    RS-A6      Yes	R A 132 134  3 Reserved Space A6
+    SLDUCU     Yes  R A 129 131  3 State Legislative District Upper, Current (2006) 
+    SLDLCU     Yes  R A 132 134  3 State Legislative District Lower, Current (2006) 
     RS-A7      Yes	R A 135 139  5 Reserved Space A7
     RS-A8      Yes	R A 140 145  6 Reserved Space A8
     RS-A9      Yes	L A 146 151  6 Reserved Space A9
@@ -1289,8 +1289,8 @@ class was generated.
     METDIVCU   Yes L N 168 172  5 FIPS Metropolitan Division Code, Current
     NECTADIVCU Yes L N 173 177  5 FIPS New England City and Town Area Division Code, Current
     RS-A14     Yes L A 178 181  4 Reserved Space A14
-    RS-A15     Yes L A 182 186  5 Reserved Space A15
-    RS-A16     Yes L A 187 187  1 Reserved Space A16
+    UACU       Yes L N 182 186  5 Urban Area, Current 
+    URCU       Yes L A 187 187  1 Urban/Rural Indicator, Current
     RS-A17     Yes L A 188 193  6 Reserved Space A17
     RS-A18     Yes L A 194 199  6 Reserved Space A18
     RS-A19     Yes L A 200 210 11 Reserved Space A19
