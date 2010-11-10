@@ -8,7 +8,7 @@ DESCRIPTION
     etc... Almost (but not quite) everything you need to recreate something
     like Mapquest.
 
-    Geo::TigerLine has been updated to reflect the structure of the 2003
+    Geo::TigerLine has been updated to reflect the structure of the 2006
     TIGER/Line data sets. If you want to use older datasets, consider
     regenerating the TIGER/Line data set parsers with the mk_parsers script
     distributed with this module.
@@ -70,6 +70,8 @@ ALSO, SEE ALSO
     Geo::TigerLine::Record::H(3pm)
 
     Geo::TigerLine::Record::I(3pm)
+
+    Geo::TigerLine::Record::M(3pm)
 
     Geo::TigerLine::Record::P(3pm)
 

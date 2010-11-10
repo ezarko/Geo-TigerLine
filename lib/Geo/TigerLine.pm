@@ -19,7 +19,7 @@ etc...  Almost (but not quite) everything you need to recreate something
 like Mapquest.
 
 Geo::TigerLine has been updated to reflect the structure of the
-2003 TIGER/Line data sets. If you want to use older datasets, consider
+2006 TIGER/Line data sets. If you want to use older datasets, consider
 regenerating the TIGER/Line data set parsers with the B<mk_parsers>
 script distributed with this module.
 
@@ -87,6 +87,8 @@ L<Geo::TigerLine::Record::E(3pm)>
 L<Geo::TigerLine::Record::H(3pm)>
 
 L<Geo::TigerLine::Record::I(3pm)>
+
+L<Geo::TigerLine::Record::M(3pm)>
 
 L<Geo::TigerLine::Record::P(3pm)>
 
